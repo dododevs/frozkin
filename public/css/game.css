@@ -1,0 +1,127 @@
+body {
+	margin: 0;
+}
+
+.almendra-regular {
+  font-family: "Almendra", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.almendra-bold {
+  font-family: "Almendra", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.almendra-regular-italic {
+  font-family: "Almendra", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.almendra-bold-italic {
+  font-family: "Almendra", serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.lc-regular {
+  font-family: "Libre Caslon Text", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.lc-bold {
+  font-family: "Libre Caslon Text", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.lc-italic {
+  font-family: "Libre Caslon Text", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.fz-card {
+	background-color: #604e4e;
+	border-radius: 0.6rem;
+	border-width: 0.5rem;
+	width: 10rem;
+	height: 15rem;
+	padding-top: 0.5rem;
+	padding-left: 0.5rem;
+	margin: 0.5rem;
+}
+
+.fz-card-container {
+	background-color: #b7b3ab;
+	width: 9rem;
+	height: 14rem;
+	border-radius: 0.6rem;
+	position: relative;
+}
+
+.fz-card-level {
+	font-size: 0.6rem;
+}
+
+.fz-card-name {
+	font-size: 0.85rem;
+}
+
+.fz-card-description {
+	font-size: 0.45rem;
+}
+
+.fz-card-footer-left {
+	font-size: 0.55rem;
+	position: absolute;
+	left: 0.45rem;
+	bottom: 0;
+}
+
+.fz-card-footer-right {
+	font-size: 0.55rem;
+	position: absolute;
+	right: 0.45rem;
+	bottom: 0;
+}
+
+.fz-room-field-container {
+	background-color: #604e4e;
+	border-radius: 2rem;
+}
+
+.fz-room-field {
+	background-color: transparent;
+	appearance: none;
+	-webkit-appearance: none;
+	border: none;
+	outline: none;
+	padding: 0.6rem;
+	color: white;
+}
+
+.fz-btn {
+	background-color: #604e4e;
+}
+
+#fz-room-submit {
+	font-size: 1rem;
+	color: var(--bs-bg-dark);
+}
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+.capitalize {
+	text-transform: capitalize;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}

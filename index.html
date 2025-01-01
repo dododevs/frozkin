@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="it" style="height: 100%;">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+	<script src="https://unpkg.com/showdown/dist/showdown.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+	<script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="css/game.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Almendra:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet">
+
+  <title>Frozkin | Original</title>
+</head>
+<body class="bg-dark w-100 h-100">
+	<div id="app" class="w-100 h-100 d-flex flex-row align-items-center justify-content-center">
+		
+		<div class="fz-deck-container d-flex flex-row" v-if="game.state == 'playing'">
+			<div class="fz-card text-center d-flex flex-column justify-content-center align-items-center" style="width: 8rem; height: 12rem; cursor: pointer;" id="deck-treasures">
+				<img src="img/chest.svg" style="width: 4rem; height: 4rem;">
+				<span class="text-white almendra-bold" style="font-size: 2rem;">Tesori</span>
+			</div>
+			<div class="fz-card text-center d-flex flex-column justify-content-center align-items-center" style="width: 8rem; height: 12rem; cursor: pointer;" id="deck-doors">
+				<img src="img/door-box.png" style="width: 4rem; height: 4rem;">
+				<span class="text-white almendra-bold" style="font-size: 2rem;">Porte</span>
+			</div>
+		</div>
+
+		<div class="d-flex flex-column" v-if="game.state == 'setup'">
+			<div class="fz-room-field-container">
+				<form id="fz-room-form">
+					<input class="fz-room-field" type="text" placeholder="Stanza">
+					<a href="#" id="fz-room-submit"><i class="mdi mdi-arrow-right me-2"></i></a>
+					<input type="submit" hidden>
+				</form>
+			</div>
+		</div>
+
+	</div>
+  <script 
+  	src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.2/gsap.min.js"
+  	integrity="sha512-kVlGhj2qFy+KBCFuvjBJTGUMxbdqJKs4yK2jh0e0VPhWUPiPC87bzm4THmaaIee3Oj7j6sDpTTgm2EPPiESqBg=="
+  	crossorigin="anonymous"
+  	referrerpolicy="no-referrer">
+  </script>
+  <script type="module" src="js/components/Card.js"></script>
+  <script setup type="module" src="js/setup.js"></script>
+  <script type="module" src="js/game.js"></script>
+  <template id="template-card">
+		<div class="fz-card text-center">
+			<div class="fz-card-container p-2">
+				<h5 class="fz-card-level uppercase almendra-regular pt-2 m-0" v-if="card.level">Livello {{ card.level }}</h5>
+				<h5 class="fz-card-level uppercase almendra-regular pt-2 m-0" v-if="card.bonus">Bonus +{{ card.bonus }}</h5>
+				<h5 class="fz-card-level almendra-bold pt-1 pb-0 m-0" v-if="card.undead">Non morto</h5>
+				<h5 class="fz-card-name uppercase almendra-regular pt-2" v-html="card.name"></h5>
+				<div class="fz-card-description lc-regular" v-html="card.description"></div>
+				<span class="fz-card-footer-left capitalize almendra-bold">{{ card.left }}</span>
+				<span style="bottom: 0.6rem;" class="fz-card-footer-left capitalize almendra-bold" v-if="card.big">Grande</span>
+				<span class="fz-card-footer-right capitalize almendra-bold">{{ card.right }}</span>
+			</div>
+		</div>
+	</template>
+</body>
+</html>
